@@ -26,7 +26,7 @@ const Navbar = () => {
             </div>
 
             <div className='block sm:hidden'>
-                {(menu === false)? null : <NavItem mobile/>}
+                {(menu === false)? null : <NavItem/>}
 
             </div>
         </nav>
