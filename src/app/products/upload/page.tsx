@@ -3,6 +3,7 @@ import React from 'react'
 import { useState } from 'react';
 import Input from '../../components/Input'
 import { FieldValues, useForm } from 'react-hook-form';
+import Button from '../../components/Button';
 
 const ProductUploadPage = () => {
   const [isLoading, setIsLoading] = useState("")
@@ -24,7 +25,7 @@ const ProductUploadPage = () => {
       latitude: 33.5563,
       longitude: 126.79581,
       imagSrc: '',
-      price: 1
+      price: ''
     }
   })
   return (
@@ -75,7 +76,8 @@ const ProductUploadPage = () => {
         {/* catagory */}
       </div>
       <hr/>
-
+    
+    <Button label='"상품 생성하기'>tk</Button>
 
     </div>
   )
