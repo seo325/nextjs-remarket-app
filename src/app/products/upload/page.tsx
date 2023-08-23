@@ -1,11 +1,17 @@
-import Input from 'postcss/lib/input'
-import React, { useState } from 'react'
+'use client'
+import React from 'react'
+import { useState } from 'react';
+import Input from '../../components/Input'
 
 const ProductUploadPage = () => {
-    // const [isLoading , setIsLoading] = useState
+    const [isLoading , setIsLoading] = useState("")
   return (
     <div>
- 
+      <Input 
+      id ="title"
+      label ="Title"
+      disalbed ={isLoading} >fdfd</Input>
+    
     </div>
     )
 }
