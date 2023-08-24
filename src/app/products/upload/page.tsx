@@ -9,6 +9,8 @@ import Heading from '@/app/components/Heading';
 import ImageUpload from '@/app/components/ImageUpload';
 import CategoryInput from '@/app/components/categories/CategoryInput';
 import { catagory, categories } from '@/app/components/categories/Categories';
+import KakaoMap from '@/app/components/KakaoMap';
+import dynamic from 'next/dynamic';
 
 const ProductUploadPage = () => {
   const [isLoading, setIsLoading] = useState("")
@@ -37,7 +39,12 @@ const ProductUploadPage = () => {
 
   }
   const imageSrc = watch('imageScr');
-  const category = watch('category')
+  const category = watch('category');
+  const latitude = watch('latitude');
+  const longitude= watch('longitude');
+  const KakaoMap = dynamic(() => import('../../components/KakaoMap'),{
+    ssr: false
+  })
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value)
   }
@@ -99,21 +106,22 @@ const ProductUploadPage = () => {
       gap-3
       max-h-[50wh]
       overflow-y-auto'>
-            {categories.map((item)=> (
+            {categories.map((item) => (
               <div key={item.label} className='col-span-1'>
                 <CategoryInput
-                  onClick ={(category) =>
-                  setCustomValue('category',category)}
-                selected ={catagory === item.path}
-                label ={item.label}
-                icon ={item.icon}
-                path ={item.path}
+                  onClick={(category) =>
+                    setCustomValue('category', category)}
+                  selected={catagory === item.path}
+                  label={item.label}
+                  icon={item.icon}
+                  path={item.path}
                 />
               </div>
             ))}
           </div>
           <hr />
-
+          <KakaoMap setCustomValue={setCustomValue} latitude ={latitude}
+          longitude ={longitude}/>
           <Button label=" 상품 생성하기"></Button>
         </form>
       </div>
