@@ -2,8 +2,10 @@
 import React from 'react'
 import { useState } from 'react';
 import Input from '../../components/Input'
-import { FieldValues, useForm } from 'react-hook-form';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import Button from '../../components/Button';
+import Container from '../../components/Container';
+import Heading from '@/app/components/Heading';
 
 const ProductUploadPage = () => {
   const [isLoading, setIsLoading] = useState("")
@@ -25,11 +27,21 @@ const ProductUploadPage = () => {
       latitude: 33.5563,
       longitude: 126.79581,
       imagSrc: '',
-      price: ''
+      price: 1
     }
   })
+  const onSubmit:SubmitHandler<FieldValues> =(data) =>{
+
+  }
   return (
-    <div>
+    <Container>
+    <div className='max-w-screen-lg mx-auto'>
+      <form className='flex flex-col gap-8' 
+      onSubmit={handleSubmit(onSubmit)}>
+
+        <Heading
+         title='Product Upload'
+         subtitle='upload your product'/>
       <Input
         id="title"
         label="Title"
@@ -77,9 +89,11 @@ const ProductUploadPage = () => {
       </div>
       <hr/>
     
-    <Button label='"상품 생성하기'>tk</Button>
-
+    <Button label='상품생성하기' />
+    </form>
     </div>
+    
+    </Container>
   )
 }
 
