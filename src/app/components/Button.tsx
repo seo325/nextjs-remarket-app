@@ -21,7 +21,6 @@ const Button:React.FC<ButtonProps>= ({
  
   return (
     <button 
-    
     type='submit'
     disabled={disabled}
     onClick={onClick}

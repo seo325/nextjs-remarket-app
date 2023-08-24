@@ -114,7 +114,7 @@ const ProductUploadPage = () => {
           </div>
           <hr />
 
-          <Button label=" 상품 생성하기" />
+          <Button label=" 상품 생성하기"></Button>
         </form>
       </div>
 
