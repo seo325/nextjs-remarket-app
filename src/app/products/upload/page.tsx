@@ -6,6 +6,7 @@ import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
 import Heading from '@/app/components/Heading';
+import ImageUpload from '@/app/components/ImageUpload';
 
 const ProductUploadPage = () => {
   const [isLoading, setIsLoading] = useState("")
@@ -33,6 +34,11 @@ const ProductUploadPage = () => {
   const onSubmit:SubmitHandler<FieldValues> =(data) =>{
 
   }
+  const imageSrc = watch('imageScr');
+  const setCustomValue =(id :string ,value :any) =>{
+    setValue(id, value)
+  }
+  
   return (
     <Container>
     <div className='max-w-screen-lg mx-auto'>
@@ -42,6 +48,11 @@ const ProductUploadPage = () => {
         <Heading
          title='Product Upload'
          subtitle='upload your product'/>
+
+         <ImageUpload 
+         onChange={(value)=> setCustomValue('imageSrc',value)}
+        value ={imageSrc}
+         />
       <Input
         id="title"
         label="Title"
@@ -89,7 +100,7 @@ const ProductUploadPage = () => {
       </div>
       <hr/>
     
-    <Button label='상품생성하기' />
+    <Button label=" 상품 생성하기"/>
     </form>
     </div>
     
