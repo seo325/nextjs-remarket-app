@@ -32,3 +32,16 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+시작 시
+1. postgreSQL docker compose up
+/Users/jeong/Desktop/nextjs-remarket-app 위치에서 docker-compose up -d 를 실행
+
+2. pgAdmin4 실행 및 연결 확인
+
+종료 시
+1. pgAdmin4 종료
+
+2. postgreSQL docker compose down
+/Users/jeong/Desktop/nextjs-remarket-app 위치에서 docker-compose down 를 실행
