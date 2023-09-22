@@ -19,39 +19,61 @@ export const authOptions :NextAuthOptions = {
             // e.g. domain, username, password, 2FA token, etc.
             // You can pass any HTML attribute to the <input> tag through the object.
             credentials: {
-                email: { label: 'Email', type: 'text' },
+                username: { label: 'Username1111', type: 'text' ,placeholder:'dddd' },
                 password: { label: "Password", type: "password" }
             },
             async authorize(credentials, req) {
-                if (!credentials?.email || !credentials?.password) {
-                    throw new Error('Invalid credentials');
+                const user = {id : "1", name :"jeong " ,email: "seohwa0325@naver.com"}
+                if(user) {
+                    return user
+                }else {
+                    return null
                 }
+            //     if (!credentials?.email || !credentials?.password) {
+            //         throw new Error('Invalid credentials');
+            //     }
 
-                const user = await prisma.user.findUnique({
-                    where: {
-                        email: credentials.email
-                    }
-                });
+            //     const user = await prisma.user.findUnique({
+            //         where: {
+            //             email: credentials.email
+            //         }
+            //     });
 
-                if (!user || !user?.hashedPassword) {
-                    throw new Error('Invalid credentials');
-                }
+            //     if (!user || !user?.hashedPassword) {
+            //         throw new Error('Invalid credentials');
+            //     }
 
-                const isCorrectPassword = await bcrypt.compare(
-                    credentials.password,
-                    user.hashedPassword
-                );
+            //     const isCorrectPassword = await bcrypt.compare(
+            //         credentials.password,
+            //         user.hashedPassword
+            //     );
 
-                if (!isCorrectPassword) {
-                    throw new Error('Invalid credentials');
-                }
+            //     if (!isCorrectPassword) {
+            //         throw new Error('Invalid credentials');
+            //     }
 
-                return user;
-            }
-        })
+            //     return user;
+            // }
+        }
+    }
+    )
     ],session :{
         strategy : 'jwt'
-    }
+    },
+    callbacks: {
+
+        async jwt({ token, user }) {
+
+            console.log(token)
+            console.log(user)
+
+            return { ...token, ...user }
+        },
+        async session({ session, token }) {
+            session.user = token;
+            return session;
+        }
+    },
 };
 
 
