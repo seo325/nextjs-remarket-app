@@ -60,6 +60,10 @@ export const authOptions :NextAuthOptions = {
     ],session :{
         strategy : 'jwt'
     },
+     jwt: {
+        secret: 'secret',
+        maxAge: 30 * 24 * 60 * 60, // 30 days
+    },
     callbacks: {
 
         async jwt({ token, user }) {
