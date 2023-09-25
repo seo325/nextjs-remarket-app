@@ -45,3 +45,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 2. postgreSQL docker compose down
 /Users/jeong/Desktop/nextjs-remarket-app 위치에서 docker-compose down 를 실행
+
+# 
